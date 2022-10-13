@@ -2,7 +2,7 @@
 
 GCPXSSCanary is a tool that can be used to collect blind-xss victim browser details, stored in GCP, and notified in a communication channel such as Slack or Google Chat. This tool was written to slightly improve on other similar tools, such as SleepyPuppy, xless, BeEF, and others by providing a terraform build process for serverless generation as well as securely storing screenshots within cloud storage, rather than a public image host. 
 
-For additional details, refer to the accompanying blog post.
+For additional details, refer to the [accompanying White Oak Security blog post](https://www.whiteoaksecurity.com/blog/blind-xss-gcp-functions-gcpxsscanary/).
 
 ## Collection Data Points
 
